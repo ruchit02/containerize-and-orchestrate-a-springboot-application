@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title tiles:fragment="title">Special Page</title>
+</head>
+
+<body>
+
+	<h1>Documents Uploaded Successfully</h1>
+	<table>
+		<tbody>
+			<tr th:each="file: ${files}">
+				<div>
+					<td th:text="${file.doc_name}" />
+					<td th:text="${file.doc_type}" />
+				</div>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

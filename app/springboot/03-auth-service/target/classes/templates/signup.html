@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title tiles:fragment="title">Please Sign Up</title>
+</head>
+
+<body>
+
+	<h1>HI THERE! SIGN UP!</h1>
+	<div tiles:fragment="content">
+		<form name="fsignup" th:object="${signupForm}" th:action="@{/myapp/gateway/endpoint1}" method="POST">
+			<fieldset>
+				<legend>Please Sign Up</legend>
+				<div th:if="${param.error}" class="alert alert-error">
+					Invalid username and password.
+				</div>
+				<div>
+					<label for="first_name">First Name</label>
+					<input type="text" id="first_name" name="first_name" th:field="*{first_name}" />
+				</div>
+				<div>
+					<label for="last_name">Last Name</label>
+					<input type="text" id="last_name" name="last_name" th:field="*{last_name}" />
+				</div>
+				<div>
+					<label for="username">Email</label>
+					<input type="text" id="username" name="username" th:field="*{email}" />
+				</div>
+				<div>
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" th:field="*{pass_word}" />
+				</div>
+				<div>
+					<label for="department">Department</label>
+					<input type="text" id="department" name="department" th:field="*{department}" />
+				</div>
+				<div>
+					<label for="expertise">Expertise</label>
+					<input type="text" id="expertise" name="expertise" th:field="*{expertise}" />
+				</div>
+				
+				<div class="form-actions">
+					<button type="submit" class="btn">Sign Up</button>
+				</div>
+			</fieldset>
+		</form>
+
+		<form name="redirectToLogin" th:action="@{/myapp/gateway/endpoint2}" method="GET">
+			<div class="form-actions">
+				<button type="submit" class="btn">Redirect: Login Page</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

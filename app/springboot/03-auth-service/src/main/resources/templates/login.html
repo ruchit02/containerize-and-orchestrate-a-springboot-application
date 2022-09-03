@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title tiles:fragment="title">Please Sign Up</title>
+  </head>
+  <body>
+  
+  <h1>HI THERE! THIS PAGE MIGHT LOAD UP</h1>
+    <div tiles:fragment="content">
+        <form name="flogin" th:object="${loginForm}" th:action="@{/myapp/gateway/endpoint2}" method="POST">
+	        <fieldset>
+	            <legend>Please Login</legend>
+                <div th:if="${param.error}" class="alert alert-error">
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </div>
+	            <label for="username">Email</label>
+	            <input type="text" id="username" name="username" th:field="*{username}" />
+	            <label for="password">Password</label>
+	            <input type="password" id="password" name="password" th:field="*{password}" />
+	            <div class="form-actions">
+	                <button type="submit" class="btn">Login</button>
+	            </div>
+	        </fieldset>
+	    </form>
+    </div>
+  </body>
+</html>
